@@ -105,7 +105,9 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "<a href=\"\" class=\"btn btn-success\">Ajouter</a>
+        echo "<a href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment_creation");
+        echo "\" class=\"btn btn-success\">Ajouter</a>
 <table class=\"table\">
     <tr class=\"table-primary\">
         <td>Image</td>
@@ -157,7 +159,17 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
             // line 30
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment_modification", ["id" => twig_get_attribute($this->env, $this->source, $context["aliment"], "id", [], "any", false, false, false, 30)]), "html", null, true);
             echo "\">Modifier</a>
-                    <a class=\"btn btn-danger\" href=\"\">Supprimer</a>
+                    <form onsubmit=\"return confirm('Confirmer la suppression?')\" style=\"display: inline-block;\" action=\"";
+            // line 31
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment_suppression", ["id" => twig_get_attribute($this->env, $this->source, $context["aliment"], "id", [], "any", false, false, false, 31)]), "html", null, true);
+            echo "\" method=\"post\">
+                        <input type=\"hidden\" name=\"_method\" value=\"delete\">
+                        <input type=\"hidden\" name=\"_token\" value=\"";
+            // line 33
+            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("SUP" . twig_get_attribute($this->env, $this->source, $context["aliment"], "id", [], "any", false, false, false, 33))), "html", null, true);
+            echo "\">
+                        <input type=\"submit\" class=\"btn btn-danger\" value=\"Suppression\">
+                    </form>
                 </td>
         </tr>
     ";
@@ -165,7 +177,7 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['aliment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 39
         echo "</table>
 ";
         
@@ -188,7 +200,7 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
 
     public function getDebugInfo()
     {
-        return array (  169 => 35,  158 => 30,  153 => 28,  149 => 27,  145 => 26,  141 => 25,  137 => 24,  133 => 23,  129 => 22,  126 => 21,  122 => 20,  108 => 8,  98 => 7,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  181 => 39,  169 => 33,  164 => 31,  160 => 30,  155 => 28,  151 => 27,  147 => 26,  143 => 25,  139 => 24,  135 => 23,  131 => 22,  128 => 21,  124 => 20,  108 => 8,  98 => 7,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -200,7 +212,7 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
 {% block monTitre %}Page d'administration{% endblock %}
 
 {% block body %}
-<a href=\"\" class=\"btn btn-success\">Ajouter</a>
+<a href=\"{{path('admin_aliment_creation')}}\" class=\"btn btn-success\">Ajouter</a>
 <table class=\"table\">
     <tr class=\"table-primary\">
         <td>Image</td>
@@ -223,7 +235,11 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
                 <td>{{aliment.lipide}}</td>
                 <td>
                     <a class=\"btn btn-secondary\" href=\"{{path('admin_aliment_modification', {'id' : aliment.id})}}\">Modifier</a>
-                    <a class=\"btn btn-danger\" href=\"\">Supprimer</a>
+                    <form onsubmit=\"return confirm('Confirmer la suppression?')\" style=\"display: inline-block;\" action=\"{{path('admin_aliment_suppression', {'id' : aliment.id })}}\" method=\"post\">
+                        <input type=\"hidden\" name=\"_method\" value=\"delete\">
+                        <input type=\"hidden\" name=\"_token\" value=\"{{csrf_token('SUP' ~ aliment.id)}}\">
+                        <input type=\"submit\" class=\"btn btn-danger\" value=\"Suppression\">
+                    </form>
                 </td>
         </tr>
     {% endfor %}

@@ -4837,6 +4837,12 @@
         <argument key="repository" type="service" id="App\Repository\AlimentRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.BQ7yuJv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="objectManager" type="service" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
     <service id=".service_locator.wiK6zVc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4844,16 +4850,18 @@
         <argument key="objectManager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.6MiEhVV" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.uRQeXYE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\Admin\AdminAlimentController::ajoutEtModif" type="service" id=".service_locator.BQ7yuJv"/>
         <argument key="App\Controller\Admin\AdminAlimentController::index" type="service" id=".service_locator.UPaMBoD"/>
-        <argument key="App\Controller\Admin\AdminAlimentController::modification" type="service" id=".service_locator.wiK6zVc"/>
+        <argument key="App\Controller\Admin\AdminAlimentController::suppression" type="service" id=".service_locator.wiK6zVc"/>
         <argument key="App\Controller\AlimentController::alimentsAvecMoinsGlucides" type="service" id=".service_locator.UPaMBoD"/>
         <argument key="App\Controller\AlimentController::alimentsMoinsCaloriques" type="service" id=".service_locator.UPaMBoD"/>
         <argument key="App\Controller\AlimentController::index" type="service" id=".service_locator.UPaMBoD"/>
+        <argument key="App\Controller\Admin\AdminAlimentController:ajoutEtModif" type="service" id=".service_locator.BQ7yuJv"/>
         <argument key="App\Controller\Admin\AdminAlimentController:index" type="service" id=".service_locator.UPaMBoD"/>
-        <argument key="App\Controller\Admin\AdminAlimentController:modification" type="service" id=".service_locator.wiK6zVc"/>
+        <argument key="App\Controller\Admin\AdminAlimentController:suppression" type="service" id=".service_locator.wiK6zVc"/>
         <argument key="App\Controller\AlimentController:alimentsAvecMoinsGlucides" type="service" id=".service_locator.UPaMBoD"/>
         <argument key="App\Controller\AlimentController:alimentsMoinsCaloriques" type="service" id=".service_locator.UPaMBoD"/>
         <argument key="App\Controller\AlimentController:index" type="service" id=".service_locator.UPaMBoD"/>
@@ -5284,12 +5292,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.6MiEhVV"/>
+      <argument type="service" id=".service_locator.uRQeXYE"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.6MiEhVV"/>
+      <argument type="service" id=".service_locator.uRQeXYE"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5665,7 +5673,7 @@
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.6MiEhVV"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.uRQeXYE"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

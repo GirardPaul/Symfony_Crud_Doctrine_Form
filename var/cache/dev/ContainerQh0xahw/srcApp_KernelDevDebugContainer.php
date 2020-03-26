@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerJ0TovSA;
+namespace ContainerQh0xahw;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -1730,18 +1730,6 @@ class srcApp_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the private '.errored..service_locator.wiK6zVc.App\Entity\Aliment' shared service.
-     *
-     * @return \App\Entity\Aliment
-     */
-    protected function getAlimentService()
-    {
-        include_once \dirname(__DIR__, 4).'/src/Entity/Aliment.php';
-
-        return $this->privates['.errored..service_locator.wiK6zVc.App\\Entity\\Aliment'] = new \App\Entity\Aliment();
-    }
-
-    /**
      * Gets the private '.legacy_resolve_controller_name_subscriber' shared service.
      *
      * @return \Symfony\Bundle\FrameworkBundle\EventListener\ResolveControllerNameSubscriber
@@ -1752,34 +1740,16 @@ class srcApp_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the private '.service_locator.6MiEhVV' shared service.
+     * Gets the private '.service_locator.BQ7yuJv' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
      */
-    protected function get_ServiceLocator_6MiEhVVService()
+    protected function get_ServiceLocator_BQ7yuJvService()
     {
-        return $this->privates['.service_locator.6MiEhVV'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'App\\Controller\\Admin\\AdminAlimentController::index' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
-            'App\\Controller\\Admin\\AdminAlimentController::modification' => ['privates', '.service_locator.wiK6zVc', 'get_ServiceLocator_WiK6zVcService', false],
-            'App\\Controller\\AlimentController::alimentsAvecMoinsGlucides' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
-            'App\\Controller\\AlimentController::alimentsMoinsCaloriques' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
-            'App\\Controller\\AlimentController::index' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
-            'App\\Controller\\Admin\\AdminAlimentController:index' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
-            'App\\Controller\\Admin\\AdminAlimentController:modification' => ['privates', '.service_locator.wiK6zVc', 'get_ServiceLocator_WiK6zVcService', false],
-            'App\\Controller\\AlimentController:alimentsAvecMoinsGlucides' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
-            'App\\Controller\\AlimentController:alimentsMoinsCaloriques' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
-            'App\\Controller\\AlimentController:index' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
+        return $this->privates['.service_locator.BQ7yuJv'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'objectManager' => ['services', 'doctrine.orm.default_entity_manager', 'getDoctrine_Orm_DefaultEntityManagerService', false],
         ], [
-            'App\\Controller\\Admin\\AdminAlimentController::index' => '?',
-            'App\\Controller\\Admin\\AdminAlimentController::modification' => '?',
-            'App\\Controller\\AlimentController::alimentsAvecMoinsGlucides' => '?',
-            'App\\Controller\\AlimentController::alimentsMoinsCaloriques' => '?',
-            'App\\Controller\\AlimentController::index' => '?',
-            'App\\Controller\\Admin\\AdminAlimentController:index' => '?',
-            'App\\Controller\\Admin\\AdminAlimentController:modification' => '?',
-            'App\\Controller\\AlimentController:alimentsAvecMoinsGlucides' => '?',
-            'App\\Controller\\AlimentController:alimentsMoinsCaloriques' => '?',
-            'App\\Controller\\AlimentController:index' => '?',
+            'objectManager' => '?',
         ]);
     }
 
@@ -1794,6 +1764,38 @@ class srcApp_KernelDevDebugContainer extends Container
             'repository' => ['privates', 'App\\Repository\\AlimentRepository', 'getAlimentRepositoryService', false],
         ], [
             'repository' => 'App\\Repository\\AlimentRepository',
+        ]);
+    }
+
+    /**
+     * Gets the private '.service_locator.mykQis6' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_MykQis6Service()
+    {
+        return $this->privates['.service_locator.mykQis6'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Controller\\Admin\\AdminAlimentController::ajoutEtModif' => ['privates', '.service_locator.BQ7yuJv', 'get_ServiceLocator_BQ7yuJvService', false],
+            'App\\Controller\\Admin\\AdminAlimentController::index' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
+            'App\\Controller\\AlimentController::alimentsAvecMoinsGlucides' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
+            'App\\Controller\\AlimentController::alimentsMoinsCaloriques' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
+            'App\\Controller\\AlimentController::index' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
+            'App\\Controller\\Admin\\AdminAlimentController:ajoutEtModif' => ['privates', '.service_locator.BQ7yuJv', 'get_ServiceLocator_BQ7yuJvService', false],
+            'App\\Controller\\Admin\\AdminAlimentController:index' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
+            'App\\Controller\\AlimentController:alimentsAvecMoinsGlucides' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
+            'App\\Controller\\AlimentController:alimentsMoinsCaloriques' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
+            'App\\Controller\\AlimentController:index' => ['privates', '.service_locator.UPaMBoD', 'get_ServiceLocator_UPaMBoDService', false],
+        ], [
+            'App\\Controller\\Admin\\AdminAlimentController::ajoutEtModif' => '?',
+            'App\\Controller\\Admin\\AdminAlimentController::index' => '?',
+            'App\\Controller\\AlimentController::alimentsAvecMoinsGlucides' => '?',
+            'App\\Controller\\AlimentController::alimentsMoinsCaloriques' => '?',
+            'App\\Controller\\AlimentController::index' => '?',
+            'App\\Controller\\Admin\\AdminAlimentController:ajoutEtModif' => '?',
+            'App\\Controller\\Admin\\AdminAlimentController:index' => '?',
+            'App\\Controller\\AlimentController:alimentsAvecMoinsGlucides' => '?',
+            'App\\Controller\\AlimentController:alimentsMoinsCaloriques' => '?',
+            'App\\Controller\\AlimentController:index' => '?',
         ]);
     }
 
@@ -1830,22 +1832,6 @@ class srcApp_KernelDevDebugContainer extends Container
             'serializer' => '?',
             'session' => '?',
             'twig' => '?',
-        ]);
-    }
-
-    /**
-     * Gets the private '.service_locator.wiK6zVc' shared service.
-     *
-     * @return \Symfony\Component\DependencyInjection\ServiceLocator
-     */
-    protected function get_ServiceLocator_WiK6zVcService()
-    {
-        return $this->privates['.service_locator.wiK6zVc'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'aliment' => ['privates', '.errored..service_locator.wiK6zVc.App\\Entity\\Aliment', NULL, 'Cannot autowire service ".service_locator.wiK6zVc": it references class "App\\Entity\\Aliment" but no such service exists.'],
-            'objectManager' => ['services', 'doctrine.orm.default_entity_manager', 'getDoctrine_Orm_DefaultEntityManagerService', false],
-        ], [
-            'aliment' => 'App\\Entity\\Aliment',
-            'objectManager' => '?',
         ]);
     }
 
@@ -2595,7 +2581,7 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/NotTaggedControllerValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.6MiEhVV'] ?? $this->get_ServiceLocator_6MiEhVVService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.mykQis6'] ?? $this->get_ServiceLocator_MykQis6Service())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -2637,7 +2623,7 @@ class srcApp_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'/vendor/symfony/http-kernel/Controller/ArgumentResolver/ServiceValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.6MiEhVV'] ?? $this->get_ServiceLocator_6MiEhVVService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.mykQis6'] ?? $this->get_ServiceLocator_MykQis6Service())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**

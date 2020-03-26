@@ -14,6 +14,7 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/admin/aliment' => [[['_route' => 'admin_aliment', '_controller' => 'App\\Controller\\Admin\\AdminAlimentController::index'], null, null, null, false, false, null]],
+        '/admin/aliment/creation' => [[['_route' => 'admin_aliment_creation', '_controller' => 'App\\Controller\\Admin\\AdminAlimentController::ajoutEtModif'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'aliments', '_controller' => 'App\\Controller\\AlimentController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -34,10 +35,12 @@ return [
                     .')'
                 .')'
                 .'|/a(?'
-                    .'|dmin/aliment/([^/]++)(*:195)'
+                    .'|dmin/aliment/([^/]++)(?'
+                        .'|(*:198)'
+                    .')'
                     .'|liments/(?'
-                        .'|calorie/([^/]++)(*:230)'
-                        .'|glucide/([^/]++)(*:254)'
+                        .'|calorie/([^/]++)(*:234)'
+                        .'|glucide/([^/]++)(*:258)'
                     .')'
                 .')'
             .')/?$}sD',
@@ -50,9 +53,12 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        195 => [[['_route' => 'admin_aliment_modification', '_controller' => 'App\\Controller\\Admin\\AdminAlimentController::modification'], ['id'], null, null, false, true, null]],
-        230 => [[['_route' => 'alimentsParCalorie', '_controller' => 'App\\Controller\\AlimentController::alimentsMoinsCaloriques'], ['calorie'], null, null, false, true, null]],
-        254 => [
+        198 => [
+            [['_route' => 'admin_aliment_modification', '_controller' => 'App\\Controller\\Admin\\AdminAlimentController::ajoutEtModif'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null],
+            [['_route' => 'admin_aliment_suppression', '_controller' => 'App\\Controller\\Admin\\AdminAlimentController::suppression'], ['id'], ['DELETE' => 0], null, false, true, null],
+        ],
+        234 => [[['_route' => 'alimentsParCalorie', '_controller' => 'App\\Controller\\AlimentController::alimentsMoinsCaloriques'], ['calorie'], null, null, false, true, null]],
+        258 => [
             [['_route' => 'alimentsParGlucide', '_controller' => 'App\\Controller\\AlimentController::alimentsAvecMoinsGlucides'], ['glucide'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

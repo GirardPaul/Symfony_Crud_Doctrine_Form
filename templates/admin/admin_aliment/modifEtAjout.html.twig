@@ -2,7 +2,15 @@
 
 {% block title %}Modification{% endblock %}
 
-{% block monTitre %}Modification {{aliment.nom}}{% endblock %}
+{% block monTitre %}
+
+    {% if isModification %}
+        Modification {{aliment.nom}}
+    {% else %}
+        Ajout d'un nouvel élément
+    {% endif %}
+    
+{% endblock %}
 
 {% block body %}
 
