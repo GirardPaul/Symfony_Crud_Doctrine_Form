@@ -9,7 +9,7 @@
     {% else %}
         Ajout d'un nouvel élément
     {% endif %}
-    
+
 {% endblock %}
 
 {% block body %}
@@ -17,8 +17,10 @@
 {{form_start(form)}}
     <div class="row">
         <div class="col-6">
-            <img src="{{asset('images/' ~ aliment.image )}}" style="width:25%;">
-            <div>{{form_row(form.image)}}</div>
+            {% if isModification %}
+            <img src="{{asset('images/aliments/' ~ aliment.image )}}" style="width:25%;">
+            {% endif %}
+            <div>{{form_row(form.imageFile)}}</div>
             <div>{{form_row(form.nom, {"attr" : {'class' : 'text-danger'}, "label" : "Nom de l'aliment"})}}</div>
         </div>
         <div class="col-6">

@@ -6,6 +6,7 @@ use App\Entity\Aliment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class AlimentType extends AbstractType
 {
@@ -14,7 +15,7 @@ class AlimentType extends AbstractType
         $builder
             ->add('nom')
             ->add('prix')
-            ->add('image')
+            ->add('imageFile', FileType::class,['required'=>false])
             ->add('calorie')
             ->add('proteine')
             ->add('glucide')

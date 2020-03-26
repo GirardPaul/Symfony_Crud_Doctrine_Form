@@ -32,7 +32,7 @@
     </tr>
     {% for aliment in aliments %}
         <tr>
-                <td><img style="width:70px; height:60px; object-fit: cover;" src="{{asset('images/' ~ aliment.image)}}"></td>
+                <td><img style="width:70px; height:60px; object-fit: cover;" src="{{asset('images/aliments/' ~ aliment.image)}}"></td>
                 <td><strong>{{aliment.nom}}</strong></td>
                 <td>{{aliment.prix}}€</td>
                 <td>{{aliment.calorie}}</td>
