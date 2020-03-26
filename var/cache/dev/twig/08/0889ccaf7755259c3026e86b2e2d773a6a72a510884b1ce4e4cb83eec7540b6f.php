@@ -105,7 +105,34 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 8
-        echo "<a href=\"";
+        echo "
+
+";
+        // line 10
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 10, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 10));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 11
+            echo "    
+<div class=\"alert alert-success\">
+
+    ";
+            // line 14
+            echo twig_escape_filter($this->env, $context["message"], "html", null, true);
+            echo "
+
+
+</div>
+
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 20
+        echo "
+<a href=\"";
+        // line 21
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment_creation");
         echo "\" class=\"btn btn-success\">Ajouter</a>
 <table class=\"table\">
@@ -120,53 +147,53 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
         <td>Actions</td>
     </tr>
     ";
-        // line 20
+        // line 33
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["aliments"]) || array_key_exists("aliments", $context) ? $context["aliments"] : (function () { throw new RuntimeError('Variable "aliments" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["aliments"]) || array_key_exists("aliments", $context) ? $context["aliments"] : (function () { throw new RuntimeError('Variable "aliments" does not exist.', 33, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["aliment"]) {
-            // line 21
+            // line 34
             echo "        <tr>
                 <td><img style=\"width:70px; height:60px; object-fit: cover;\" src=\"";
-            // line 22
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . twig_get_attribute($this->env, $this->source, $context["aliment"], "image", [], "any", false, false, false, 22))), "html", null, true);
+            // line 35
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/" . twig_get_attribute($this->env, $this->source, $context["aliment"], "image", [], "any", false, false, false, 35))), "html", null, true);
             echo "\"></td>
                 <td><strong>";
-            // line 23
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "nom", [], "any", false, false, false, 23), "html", null, true);
+            // line 36
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "nom", [], "any", false, false, false, 36), "html", null, true);
             echo "</strong></td>
                 <td>";
-            // line 24
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "prix", [], "any", false, false, false, 24), "html", null, true);
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "prix", [], "any", false, false, false, 37), "html", null, true);
             echo "€</td>
                 <td>";
-            // line 25
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "calorie", [], "any", false, false, false, 25), "html", null, true);
+            // line 38
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "calorie", [], "any", false, false, false, 38), "html", null, true);
             echo "</td>
                 <td>";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "proteine", [], "any", false, false, false, 26), "html", null, true);
+            // line 39
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "proteine", [], "any", false, false, false, 39), "html", null, true);
             echo "</td>
                 <td>";
-            // line 27
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "glucide", [], "any", false, false, false, 27), "html", null, true);
+            // line 40
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "glucide", [], "any", false, false, false, 40), "html", null, true);
             echo "</td>
                 <td>";
-            // line 28
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "lipide", [], "any", false, false, false, 28), "html", null, true);
+            // line 41
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "lipide", [], "any", false, false, false, 41), "html", null, true);
             echo "</td>
                 <td>
                     <a class=\"btn btn-secondary\" href=\"";
-            // line 30
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment_modification", ["id" => twig_get_attribute($this->env, $this->source, $context["aliment"], "id", [], "any", false, false, false, 30)]), "html", null, true);
+            // line 43
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment_modification", ["id" => twig_get_attribute($this->env, $this->source, $context["aliment"], "id", [], "any", false, false, false, 43)]), "html", null, true);
             echo "\">Modifier</a>
                     <form onsubmit=\"return confirm('Confirmer la suppression?')\" style=\"display: inline-block;\" action=\"";
-            // line 31
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment_suppression", ["id" => twig_get_attribute($this->env, $this->source, $context["aliment"], "id", [], "any", false, false, false, 31)]), "html", null, true);
+            // line 44
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment_suppression", ["id" => twig_get_attribute($this->env, $this->source, $context["aliment"], "id", [], "any", false, false, false, 44)]), "html", null, true);
             echo "\" method=\"post\">
                         <input type=\"hidden\" name=\"_method\" value=\"delete\">
                         <input type=\"hidden\" name=\"_token\" value=\"";
-            // line 33
-            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("SUP" . twig_get_attribute($this->env, $this->source, $context["aliment"], "id", [], "any", false, false, false, 33))), "html", null, true);
+            // line 46
+            echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("SUP" . twig_get_attribute($this->env, $this->source, $context["aliment"], "id", [], "any", false, false, false, 46))), "html", null, true);
             echo "\">
                         <input type=\"submit\" class=\"btn btn-danger\" value=\"Suppression\">
                     </form>
@@ -177,7 +204,7 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['aliment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 52
         echo "</table>
 ";
         
@@ -200,7 +227,7 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
 
     public function getDebugInfo()
     {
-        return array (  181 => 39,  169 => 33,  164 => 31,  160 => 30,  155 => 28,  151 => 27,  147 => 26,  143 => 25,  139 => 24,  135 => 23,  131 => 22,  128 => 21,  124 => 20,  108 => 8,  98 => 7,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  208 => 52,  196 => 46,  191 => 44,  187 => 43,  182 => 41,  178 => 40,  174 => 39,  170 => 38,  166 => 37,  162 => 36,  158 => 35,  155 => 34,  151 => 33,  136 => 21,  133 => 20,  121 => 14,  116 => 11,  112 => 10,  108 => 8,  98 => 7,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -212,6 +239,19 @@ class __TwigTemplate_ef7a3784ed60b69e88b69f9bcb72a048806409267cc8e2d7a8e0c03ef58
 {% block monTitre %}Page d'administration{% endblock %}
 
 {% block body %}
+
+
+{% for message in app.flashes('success') %}
+    
+<div class=\"alert alert-success\">
+
+    {{message}}
+
+
+</div>
+
+{% endfor %}
+
 <a href=\"{{path('admin_aliment_creation')}}\" class=\"btn btn-success\">Ajouter</a>
 <table class=\"table\">
     <tr class=\"table-primary\">
