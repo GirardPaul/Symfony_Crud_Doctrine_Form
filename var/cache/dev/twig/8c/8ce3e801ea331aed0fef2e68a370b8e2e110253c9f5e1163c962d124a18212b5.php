@@ -79,22 +79,28 @@ class __TwigTemplate_01c127e1e8d2942d5a5977c805c6d7973617d7217e91ef85cba880225e8
                 <li class=\"nav-item\">
                   <a class=\"nav-link\" href=\"/\">Aliments</a>
                 </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"";
+        // line 24
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment");
+        echo "\">Administration</a>
+                </li>
               </ul>
             </div>
           </nav>
 
 
         <h1 class=\"border border-primary bg-primary p-2 m-2 text-white\">";
-        // line 28
+        // line 31
         $this->displayBlock('monTitre', $context, $blocks);
         echo "</h1>
         ";
-        // line 29
+        // line 32
         $this->displayBlock('body', $context, $blocks);
-        // line 30
+        // line 33
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 31
+        // line 34
         echo "        <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
 <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
 <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -146,7 +152,7 @@ class __TwigTemplate_01c127e1e8d2942d5a5977c805c6d7973617d7217e91ef85cba880225e8
 
     }
 
-    // line 28
+    // line 31
     public function block_monTitre($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -164,7 +170,7 @@ class __TwigTemplate_01c127e1e8d2942d5a5977c805c6d7973617d7217e91ef85cba880225e8
 
     }
 
-    // line 29
+    // line 32
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -182,7 +188,7 @@ class __TwigTemplate_01c127e1e8d2942d5a5977c805c6d7973617d7217e91ef85cba880225e8
 
     }
 
-    // line 30
+    // line 33
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -212,7 +218,7 @@ class __TwigTemplate_01c127e1e8d2942d5a5977c805c6d7973617d7217e91ef85cba880225e8
 
     public function getDebugInfo()
     {
-        return array (  186 => 30,  168 => 29,  150 => 28,  132 => 8,  113 => 5,  98 => 31,  95 => 30,  93 => 29,  89 => 28,  72 => 14,  65 => 9,  63 => 8,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  192 => 33,  174 => 32,  156 => 31,  138 => 8,  119 => 5,  104 => 34,  101 => 33,  99 => 32,  95 => 31,  85 => 24,  72 => 14,  65 => 9,  63 => 8,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -238,6 +244,9 @@ class __TwigTemplate_01c127e1e8d2942d5a5977c805c6d7973617d7217e91ef85cba880225e8
               <ul class=\"navbar-nav mr-auto\">
                 <li class=\"nav-item\">
                   <a class=\"nav-link\" href=\"/\">Aliments</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"{{path('admin_aliment')}}\">Administration</a>
                 </li>
               </ul>
             </div>

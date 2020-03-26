@@ -15,6 +15,8 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
+    'admin_aliment' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminAlimentController::index'], [], [['text', '/admin/aliment']], [], []],
+    'admin_aliment_modification' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminAlimentController::modification'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/admin/aliment']], [], []],
     'aliments' => [[], ['_controller' => 'App\\Controller\\AlimentController::index'], [], [['text', '/']], [], []],
     'alimentsParCalorie' => [['calorie'], ['_controller' => 'App\\Controller\\AlimentController::alimentsMoinsCaloriques'], [], [['variable', '/', '[^/]++', 'calorie'], ['text', '/aliments/calorie']], [], []],
     'alimentsParGlucide' => [['glucide'], ['_controller' => 'App\\Controller\\AlimentController::alimentsAvecMoinsGlucides'], [], [['variable', '/', '[^/]++', 'glucide'], ['text', '/aliments/glucide']], [], []],

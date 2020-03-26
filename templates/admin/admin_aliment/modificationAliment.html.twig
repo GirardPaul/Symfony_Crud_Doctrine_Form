@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification{% endblock %}
+
+{% block monTitre %}Modification {{aliment.nom}}{% endblock %}
+
+{% block body %}
+
+{{form_start(form)}}
+    <div class="row">
+        <div class="col-6">
+            <img src="{{asset('images/' ~ aliment.image )}}" style="width:25%;">
+            <div>{{form_row(form.image)}}</div>
+            <div>{{form_row(form.nom, {"attr" : {'class' : 'text-danger'}, "label" : "Nom de l'aliment"})}}</div>
+        </div>
+        <div class="col-6">
+            {{form_widget(form)}}
+        </div>
+    </div>
+    
+    <input class="btn btn-primary" type="submit" value="Enregistrer">
+{{form_end(form)}}
+
+{% endblock %}
