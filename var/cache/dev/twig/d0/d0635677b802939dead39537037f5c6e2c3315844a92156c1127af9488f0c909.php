@@ -154,6 +154,10 @@ class __TwigTemplate_b8a6828492915d0ad195093f3030b5291d500b9602010bfe9e1a778a3aa
             // line 28
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "prix", [], "any", false, false, false, 28), "html", null, true);
             echo "€</h4>
+                    <h4 class=\"text-center\">Type : ";
+            // line 29
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["aliment"], "type", [], "any", false, false, false, 29), "libelle", [], "any", false, false, false, 29), "html", null, true);
+            echo "</h4>
                     <table class=\"table text-center\">
                         <tr class=\"table-primary\">
                             <td>Propriété</td>
@@ -162,29 +166,29 @@ class __TwigTemplate_b8a6828492915d0ad195093f3030b5291d500b9602010bfe9e1a778a3aa
                         <tr>
                             <td>Calorie</td>
                             <td>";
-            // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "calorie", [], "any", false, false, false, 36), "html", null, true);
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "calorie", [], "any", false, false, false, 37), "html", null, true);
             echo "</td>
                         </tr>
                         <tr>
                             <td>Protéines</td>
                             <td>";
-            // line 40
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "proteine", [], "any", false, false, false, 40), "html", null, true);
+            // line 41
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "proteine", [], "any", false, false, false, 41), "html", null, true);
             echo "</td>
                         </tr>
                         <tr>
                             <td>Glucides</td>
                             <td>";
-            // line 44
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "glucide", [], "any", false, false, false, 44), "html", null, true);
+            // line 45
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "glucide", [], "any", false, false, false, 45), "html", null, true);
             echo "</td>
                         </tr>
                         <tr>
                             <td>Lipides</td>
                             <td>";
-            // line 48
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "lipide", [], "any", false, false, false, 48), "html", null, true);
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["aliment"], "lipide", [], "any", false, false, false, 49), "html", null, true);
             echo "</td>
                         </tr>
                     </table>
@@ -197,7 +201,7 @@ class __TwigTemplate_b8a6828492915d0ad195093f3030b5291d500b9602010bfe9e1a778a3aa
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['aliment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 56
+        // line 57
         echo "</div>
 ";
         
@@ -220,7 +224,7 @@ class __TwigTemplate_b8a6828492915d0ad195093f3030b5291d500b9602010bfe9e1a778a3aa
 
     public function getDebugInfo()
     {
-        return array (  201 => 56,  187 => 48,  180 => 44,  173 => 40,  166 => 36,  155 => 28,  150 => 26,  144 => 23,  137 => 18,  133 => 17,  127 => 14,  123 => 13,  120 => 12,  110 => 11,  98 => 8,  96 => 7,  93 => 6,  91 => 5,  79 => 4,  60 => 3,  37 => 1,);
+        return array (  205 => 57,  191 => 49,  184 => 45,  177 => 41,  170 => 37,  159 => 29,  155 => 28,  150 => 26,  144 => 23,  137 => 18,  133 => 17,  127 => 14,  123 => 13,  120 => 12,  110 => 11,  98 => 8,  96 => 7,  93 => 6,  91 => 5,  79 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -253,6 +257,7 @@ avec moins de 5 glucides
                 <h3 class=\"card-title text-center pb-2 mx-3 border-bottom border-primary\">{{aliment.nom}}</h3>
                 <p class=\"card-text\">
                     <h4 class=\"text-center\">Prix (kilo) : {{aliment.prix}}€</h4>
+                    <h4 class=\"text-center\">Type : {{aliment.type.libelle}}</h4>
                     <table class=\"table text-center\">
                         <tr class=\"table-primary\">
                             <td>Propriété</td>

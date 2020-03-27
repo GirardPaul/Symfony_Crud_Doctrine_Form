@@ -19,7 +19,12 @@ return [
     'admin_aliment_creation' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminAlimentController::ajoutEtModif'], [], [['text', '/admin/aliment/creation']], [], []],
     'admin_aliment_modification' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminAlimentController::ajoutEtModif'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/admin/aliment']], [], []],
     'admin_aliment_suppression' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminAlimentController::suppression'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/admin/aliment']], [], []],
+    'admin_types' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminTypeController::index'], [], [['text', '/admin/type']], [], []],
+    'ajoutType' => [[], ['_controller' => 'App\\Controller\\Admin\\AdminTypeController::ajoutEtModif'], [], [['text', '/admin/type/create']], [], []],
+    'modifType' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminTypeController::ajoutEtModif'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/admin/type']], [], []],
+    'deleteType' => [['id'], ['_controller' => 'App\\Controller\\Admin\\AdminTypeController::deleteType'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/admin/type']], [], []],
     'aliments' => [[], ['_controller' => 'App\\Controller\\AlimentController::index'], [], [['text', '/']], [], []],
     'alimentsParCalorie' => [['calorie'], ['_controller' => 'App\\Controller\\AlimentController::alimentsMoinsCaloriques'], [], [['variable', '/', '[^/]++', 'calorie'], ['text', '/aliments/calorie']], [], []],
     'alimentsParGlucide' => [['glucide'], ['_controller' => 'App\\Controller\\AlimentController::alimentsAvecMoinsGlucides'], [], [['variable', '/', '[^/]++', 'glucide'], ['text', '/aliments/glucide']], [], []],
+    'types' => [[], ['_controller' => 'App\\Controller\\TypeController::index'], [], [['text', '/types']], [], []],
 ];

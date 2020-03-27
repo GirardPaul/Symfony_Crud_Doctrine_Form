@@ -146,19 +146,24 @@ class __TwigTemplate_d7093d0e0bf8183b7d36cf3071acade186eeef6ed634dd8878b728c49c3
         // line 24
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 24, $this->source); })()), "nom", [], "any", false, false, false, 24), 'row', ["attr" => ["class" => "text-danger"], "label" => "Nom de l'aliment"]);
         echo "</div>
+            <div>";
+        // line 25
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), "type", [], "any", false, false, false, 25), 'row');
+        echo "</div>
         </div>
         <div class=\"col-6\">
             ";
-        // line 27
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 27, $this->source); })()), 'widget');
+        // line 28
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 28, $this->source); })()), 'widget');
         echo "
         </div>
     </div>
     
     <input class=\"btn btn-primary\" type=\"submit\" value=\"Enregistrer\">
+
 ";
-        // line 32
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 32, $this->source); })()), 'form_end');
+        // line 34
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 34, $this->source); })()), 'form_end');
         echo "
 
 ";
@@ -182,7 +187,7 @@ class __TwigTemplate_d7093d0e0bf8183b7d36cf3071acade186eeef6ed634dd8878b728c49c3
 
     public function getDebugInfo()
     {
-        return array (  161 => 32,  153 => 27,  147 => 24,  142 => 23,  136 => 21,  134 => 20,  128 => 17,  125 => 16,  115 => 15,  104 => 12,  100 => 10,  94 => 8,  92 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  166 => 34,  157 => 28,  151 => 25,  147 => 24,  142 => 23,  136 => 21,  134 => 20,  128 => 17,  125 => 16,  115 => 15,  104 => 12,  100 => 10,  94 => 8,  92 => 7,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -211,6 +216,7 @@ class __TwigTemplate_d7093d0e0bf8183b7d36cf3071acade186eeef6ed634dd8878b728c49c3
             {% endif %}
             <div>{{form_row(form.imageFile)}}</div>
             <div>{{form_row(form.nom, {\"attr\" : {'class' : 'text-danger'}, \"label\" : \"Nom de l'aliment\"})}}</div>
+            <div>{{form_row(form.type)}}</div>
         </div>
         <div class=\"col-6\">
             {{form_widget(form)}}
@@ -218,6 +224,7 @@ class __TwigTemplate_d7093d0e0bf8183b7d36cf3071acade186eeef6ed634dd8878b728c49c3
     </div>
     
     <input class=\"btn btn-primary\" type=\"submit\" value=\"Enregistrer\">
+
 {{form_end(form)}}
 
 {% endblock %}", "admin/admin_aliment/modifEtAjout.html.twig", "/Applications/MAMP/htdocs/aliments/templates/admin/admin_aliment/modifEtAjout.html.twig");

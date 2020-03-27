@@ -22,6 +22,7 @@
             {% endif %}
             <div>{{form_row(form.imageFile)}}</div>
             <div>{{form_row(form.nom, {"attr" : {'class' : 'text-danger'}, "label" : "Nom de l'aliment"})}}</div>
+            <div>{{form_row(form.type)}}</div>
         </div>
         <div class="col-6">
             {{form_widget(form)}}
@@ -29,6 +30,7 @@
     </div>
     
     <input class="btn btn-primary" type="submit" value="Enregistrer">
+
 {{form_end(form)}}
 
 {% endblock %}

@@ -254,6 +254,22 @@
         <parameter key="inject_on_load">false</parameter>
         <parameter key="db_driver">orm</parameter>
       </parameter>
+      <parameter key="type_image" type="collection">
+        <parameter key="uri_prefix">/types/aliments</parameter>
+        <parameter key="upload_destination">/Applications/MAMP/htdocs/aliments/public/images/types</parameter>
+        <parameter key="namer" type="collection">
+          <parameter key="service">Vich\UploaderBundle\Naming\SmartUniqueNamer.type_image</parameter>
+          <parameter key="options" type="collection"/>
+        </parameter>
+        <parameter key="directory_namer" type="collection">
+          <parameter key="service">null</parameter>
+          <parameter key="options">null</parameter>
+        </parameter>
+        <parameter key="delete_on_remove">true</parameter>
+        <parameter key="delete_on_update">true</parameter>
+        <parameter key="inject_on_load">false</parameter>
+        <parameter key="db_driver">orm</parameter>
+      </parameter>
     </parameter>
     <parameter key="vich_uploader.file_injector.class">Vich\UploaderBundle\Injector\FileInjector</parameter>
     <parameter key="data_collector.templates" type="collection">
@@ -355,6 +371,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\Admin\AdminAlimentController"/>
       </call>
     </service>
+    <service id="App\Controller\Admin\AdminTypeController" class="App\Controller\Admin\AdminTypeController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\Admin\AdminTypeController"/>
+      </call>
+    </service>
     <service id="App\Controller\AlimentController" class="App\Controller\AlimentController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -362,13 +385,30 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\AlimentController"/>
       </call>
     </service>
+    <service id="App\Controller\TypeController" class="App\Controller\TypeController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\TypeController"/>
+      </call>
+    </service>
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\TypeFixtures" class="App\DataFixtures\TypeFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
     <service id="App\Form\AlimentType" class="App\Form\AlimentType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\TypeType" class="App\Form\TypeType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Repository\AlimentRepository" class="App\Repository\AlimentRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\TypeRepository" class="App\Repository\TypeRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -785,6 +825,7 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\AlimentType</argument>
+        <argument>App\Form\TypeType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1118,7 +1159,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.96DJkuZ"/>
+      <argument type="service" id=".service_locator.TVq8zxr"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -3464,10 +3505,19 @@
         <argument type="service" id="vich_uploader.listener.clean.aliment_image"/>
       </call>
       <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.clean.type_image"/>
+      </call>
+      <call method="addEventSubscriber">
         <argument type="service" id="vich_uploader.listener.remove.aliment_image"/>
       </call>
       <call method="addEventSubscriber">
         <argument type="service" id="vich_uploader.listener.upload.aliment_image"/>
+      </call>
+      <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.remove.type_image"/>
+      </call>
+      <call method="addEventSubscriber">
+        <argument type="service" id="vich_uploader.listener.upload.type_image"/>
       </call>
       <call method="addEventListener">
         <argument type="collection">
@@ -3513,7 +3563,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator._lMZKFd"/>
+      <argument type="service" id=".service_locator.9Mtjm8r"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4721,10 +4771,17 @@
             <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
             <argument key="groups" type="collection"/>
           </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\TypeFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
         </argument>
       </call>
     </service>
     <service id="Vich\UploaderBundle\Naming\SmartUniqueNamer.aliment_image" class="Vich\UploaderBundle\Naming\SmartUniqueNamer" public="true">
+      <argument type="service" id="Vich\UploaderBundle\Util\Transliterator"/>
+    </service>
+    <service id="Vich\UploaderBundle\Naming\SmartUniqueNamer.type_image" class="Vich\UploaderBundle\Naming\SmartUniqueNamer" public="true">
       <argument type="service" id="Vich\UploaderBundle\Util\Transliterator"/>
     </service>
     <service id="vich_uploader.adapter.mongodb" class="Vich\UploaderBundle\Adapter\ODM\MongoDB\MongoDBAdapter" public="false"/>
@@ -4957,18 +5014,51 @@
       <argument type="service" id="vich_uploader.metadata_reader"/>
       <argument type="service" id="vich_uploader.upload_handler"/>
     </service>
+    <service id="vich_uploader.listener.clean.type_image" class="Vich\UploaderBundle\EventListener\Doctrine\CleanListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="50"/>
+      <argument>type_image</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.remove.type_image" class="Vich\UploaderBundle\EventListener\Doctrine\RemoveListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="0"/>
+      <argument>type_image</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.upload.type_image" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener" public="false">
+      <tag name="doctrine.event_subscriber" priority="0"/>
+      <argument>type_image</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminAlimentController" class="App\Controller\Admin\AdminAlimentController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminAlimentController" class="App\Controller\Admin\AdminAlimentController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Admin\AdminAlimentController" class="App\Controller\Admin\AdminAlimentController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\AdminTypeController" class="App\Controller\Admin\AdminTypeController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\AdminTypeController" class="App\Controller\Admin\AdminTypeController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\AdminTypeController" class="App\Controller\Admin\AdminTypeController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AlimentController" class="App\Controller\AlimentController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AlimentController" class="App\Controller\AlimentController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AlimentController" class="App\Controller\AlimentController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TypeController" class="App\Controller\TypeController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TypeController" class="App\Controller\TypeController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TypeController" class="App\Controller\TypeController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\TypeFixtures" class="App\DataFixtures\TypeFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\TypeFixtures" class="App\DataFixtures\TypeFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AlimentType" class="App\Form\AlimentType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AlimentType" class="App\Form\AlimentType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\TypeType" class="App\Form\TypeType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\TypeType" class="App\Form\TypeType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AlimentRepository" class="App\Repository\AlimentRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\AlimentRepository" class="App\Repository\AlimentRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TypeRepository" class="App\Repository\TypeRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\TypeRepository" class="App\Repository\TypeRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5171,21 +5261,48 @@
         <argument key="objectManager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.uRQeXYE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.OsAwG63" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repository" type="service" id="App\Repository\TypeRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.GDrlXJb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="objectManager" type="service" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.SOheyZl" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="objectManager" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="type" type="service" id=".errored..service_locator.SOheyZl.App\Entity\Type"/>
+      </argument>
+    </service>
+    <service id=".service_locator.1TlSdOg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\AdminAlimentController::ajoutEtModif" type="service" id=".service_locator.BQ7yuJv"/>
         <argument key="App\Controller\Admin\AdminAlimentController::index" type="service" id=".service_locator.UPaMBoD"/>
         <argument key="App\Controller\Admin\AdminAlimentController::suppression" type="service" id=".service_locator.wiK6zVc"/>
+        <argument key="App\Controller\Admin\AdminTypeController::ajoutEtModif" type="service" id=".service_locator.GDrlXJb"/>
+        <argument key="App\Controller\Admin\AdminTypeController::deleteType" type="service" id=".service_locator.SOheyZl"/>
+        <argument key="App\Controller\Admin\AdminTypeController::index" type="service" id=".service_locator.OsAwG63"/>
         <argument key="App\Controller\AlimentController::alimentsAvecMoinsGlucides" type="service" id=".service_locator.UPaMBoD"/>
         <argument key="App\Controller\AlimentController::alimentsMoinsCaloriques" type="service" id=".service_locator.UPaMBoD"/>
         <argument key="App\Controller\AlimentController::index" type="service" id=".service_locator.UPaMBoD"/>
+        <argument key="App\Controller\TypeController::index" type="service" id=".service_locator.OsAwG63"/>
         <argument key="App\Controller\Admin\AdminAlimentController:ajoutEtModif" type="service" id=".service_locator.BQ7yuJv"/>
         <argument key="App\Controller\Admin\AdminAlimentController:index" type="service" id=".service_locator.UPaMBoD"/>
         <argument key="App\Controller\Admin\AdminAlimentController:suppression" type="service" id=".service_locator.wiK6zVc"/>
+        <argument key="App\Controller\Admin\AdminTypeController:ajoutEtModif" type="service" id=".service_locator.GDrlXJb"/>
+        <argument key="App\Controller\Admin\AdminTypeController:deleteType" type="service" id=".service_locator.SOheyZl"/>
+        <argument key="App\Controller\Admin\AdminTypeController:index" type="service" id=".service_locator.OsAwG63"/>
         <argument key="App\Controller\AlimentController:alimentsAvecMoinsGlucides" type="service" id=".service_locator.UPaMBoD"/>
         <argument key="App\Controller\AlimentController:alimentsMoinsCaloriques" type="service" id=".service_locator.UPaMBoD"/>
         <argument key="App\Controller\AlimentController:index" type="service" id=".service_locator.UPaMBoD"/>
+        <argument key="App\Controller\TypeController:index" type="service" id=".service_locator.OsAwG63"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5247,10 +5364,11 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.96DJkuZ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.TVq8zxr" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AlimentType" type="service" id="App\Form\AlimentType"/>
+        <argument key="App\Form\TypeType" type="service" id="App\Form\TypeType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -5270,10 +5388,11 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator._lMZKFd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.9Mtjm8r" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AlimentRepository" type="service" id="App\Repository\AlimentRepository"/>
+        <argument key="App\Repository\TypeRepository" type="service" id="App\Repository\TypeRepository"/>
       </argument>
     </service>
     <service id="debug.security.voter.security.access.authenticated_voter" class="Symfony\Component\Security\Core\Authorization\Voter\TraceableVoter">
@@ -5479,9 +5598,21 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\Admin\AdminTypeController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\AdminTypeController"/>
+      <argument>App\Controller\Admin\AdminTypeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\AlimentController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\AlimentController"/>
       <argument>App\Controller\AlimentController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\TypeController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\TypeController"/>
+      <argument>App\Controller\TypeController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -5616,12 +5747,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.uRQeXYE"/>
+      <argument type="service" id=".service_locator.1TlSdOg"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.uRQeXYE"/>
+      <argument type="service" id=".service_locator.1TlSdOg"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5632,6 +5763,7 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id=".errored..service_locator.wiK6zVc.App\Entity\Aliment" class="App\Entity\Aliment"/>
+    <service id=".errored..service_locator.SOheyZl.App\Entity\Type" class="App\Entity\Type"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator..qHL1EC"/>
       <argument type="collection">
@@ -6022,7 +6154,7 @@
     <service id="Vich\UploaderBundle\Form\Type\VichImageType" alias="vich_uploader.form.type.image" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.uRQeXYE"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.1TlSdOg"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
