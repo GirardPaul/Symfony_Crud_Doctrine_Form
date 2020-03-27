@@ -20,15 +20,32 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/">Aliments</a>
                 </li>
+                {% if is_granted("ROLE_ADMIN") %}
                 <li class="nav-item">
                   <a class="nav-link" href="{{path('admin_aliment')}}">Administration</a>
               </li>
+              {% endif %}
                 <li class="nav-item">
                   <a class="nav-link" href="{{path('types')}}">Types</a>
               </li>
+              {% if is_granted("ROLE_ADMIN") %}
               <li class="nav-item">
                 <a class="nav-link" href="{{path('admin_types')}}">Administration</a>
-            </li>
+              </li>
+              {% endif %}
+              {% if not app.user  %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{path('inscription')}}">Inscription</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{path('connexion')}}">Connexion</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{path('deconnexion')}}">Deconnexion</a>
+              </li>
+
+              {% endif %}
               </ul>
             </div>
           </nav>

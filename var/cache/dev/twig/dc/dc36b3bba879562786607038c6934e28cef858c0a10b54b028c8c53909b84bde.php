@@ -79,40 +79,82 @@ class __TwigTemplate_683c30d4297a6f164af4c302b6bd738b4ca0d0bbf5c085989c6707e9ee0
                 <li class=\"nav-item\">
                   <a class=\"nav-link\" href=\"/\">Aliments</a>
                 </li>
-                <li class=\"nav-item\">
+                ";
+        // line 23
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+            // line 24
+            echo "                <li class=\"nav-item\">
                   <a class=\"nav-link\" href=\"";
-        // line 24
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment");
-        echo "\">Administration</a>
+            // line 25
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_aliment");
+            echo "\">Administration</a>
               </li>
-                <li class=\"nav-item\">
+              ";
+        }
+        // line 28
+        echo "                <li class=\"nav-item\">
                   <a class=\"nav-link\" href=\"";
-        // line 27
+        // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("types");
         echo "\">Types</a>
               </li>
+              ";
+        // line 31
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+            // line 32
+            echo "              <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"";
+            // line 33
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_types");
+            echo "\">Administration</a>
+              </li>
+              ";
+        }
+        // line 36
+        echo "              ";
+        if ( !twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 36, $this->source); })()), "user", [], "any", false, false, false, 36)) {
+            // line 37
+            echo "              <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"";
+            // line 38
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("inscription");
+            echo "\">Inscription</a>
+              </li>
               <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"";
-        // line 30
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_types");
-        echo "\">Administration</a>
-            </li>
-              </ul>
+            // line 41
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("connexion");
+            echo "\">Connexion</a>
+              </li>
+              ";
+        } else {
+            // line 44
+            echo "              <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"";
+            // line 45
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deconnexion");
+            echo "\">Deconnexion</a>
+              </li>
+
+              ";
+        }
+        // line 49
+        echo "              </ul>
             </div>
           </nav>
 
 
         <h1 class=\"border border-primary bg-primary p-2 m-2 text-white\">";
-        // line 37
+        // line 54
         $this->displayBlock('monTitre', $context, $blocks);
         echo "</h1>
         ";
-        // line 38
+        // line 55
         $this->displayBlock('body', $context, $blocks);
-        // line 39
+        // line 56
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 40
+        // line 57
         echo "        <script src=\"https://code.jquery.com/jquery-3.4.1.slim.min.js\" integrity=\"sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n\" crossorigin=\"anonymous\"></script>
 <script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script>
 <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script>
@@ -164,7 +206,7 @@ class __TwigTemplate_683c30d4297a6f164af4c302b6bd738b4ca0d0bbf5c085989c6707e9ee0
 
     }
 
-    // line 37
+    // line 54
     public function block_monTitre($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -182,7 +224,7 @@ class __TwigTemplate_683c30d4297a6f164af4c302b6bd738b4ca0d0bbf5c085989c6707e9ee0
 
     }
 
-    // line 38
+    // line 55
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -200,7 +242,7 @@ class __TwigTemplate_683c30d4297a6f164af4c302b6bd738b4ca0d0bbf5c085989c6707e9ee0
 
     }
 
-    // line 39
+    // line 56
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -230,7 +272,7 @@ class __TwigTemplate_683c30d4297a6f164af4c302b6bd738b4ca0d0bbf5c085989c6707e9ee0
 
     public function getDebugInfo()
     {
-        return array (  204 => 39,  186 => 38,  168 => 37,  150 => 8,  131 => 5,  116 => 40,  113 => 39,  111 => 38,  107 => 37,  97 => 30,  91 => 27,  85 => 24,  72 => 14,  65 => 9,  63 => 8,  59 => 7,  54 => 5,  48 => 1,);
+        return array (  246 => 56,  228 => 55,  210 => 54,  192 => 8,  173 => 5,  158 => 57,  155 => 56,  153 => 55,  149 => 54,  142 => 49,  135 => 45,  132 => 44,  126 => 41,  120 => 38,  117 => 37,  114 => 36,  108 => 33,  105 => 32,  103 => 31,  98 => 29,  95 => 28,  89 => 25,  86 => 24,  84 => 23,  72 => 14,  65 => 9,  63 => 8,  59 => 7,  54 => 5,  48 => 1,);
     }
 
     public function getSourceContext()
@@ -257,15 +299,32 @@ class __TwigTemplate_683c30d4297a6f164af4c302b6bd738b4ca0d0bbf5c085989c6707e9ee0
                 <li class=\"nav-item\">
                   <a class=\"nav-link\" href=\"/\">Aliments</a>
                 </li>
+                {% if is_granted(\"ROLE_ADMIN\") %}
                 <li class=\"nav-item\">
                   <a class=\"nav-link\" href=\"{{path('admin_aliment')}}\">Administration</a>
               </li>
+              {% endif %}
                 <li class=\"nav-item\">
                   <a class=\"nav-link\" href=\"{{path('types')}}\">Types</a>
               </li>
+              {% if is_granted(\"ROLE_ADMIN\") %}
               <li class=\"nav-item\">
                 <a class=\"nav-link\" href=\"{{path('admin_types')}}\">Administration</a>
-            </li>
+              </li>
+              {% endif %}
+              {% if not app.user  %}
+              <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"{{path('inscription')}}\">Inscription</a>
+              </li>
+              <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"{{path('connexion')}}\">Connexion</a>
+              </li>
+              {% else %}
+              <li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"{{path('deconnexion')}}\">Deconnexion</a>
+              </li>
+
+              {% endif %}
               </ul>
             </div>
           </nav>
